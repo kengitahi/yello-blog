@@ -11,7 +11,7 @@
             <a href="#" class="bg-red-600 text-white rounded-xl px-3 py-1 text-sm mr-3">
                 Laravel
             </a>
-            <p class="text-gray-500 text-sm">{{$post->published_at}}</p>
+            <p class="text-gray-500 text-sm">{{$post->published_at->toFormattedDateString()}}</p>
         </div>
         <a href="#" class="text-xl font-bold text-gray-900">{{$post->title}}</a>
     </div>

@@ -1,53 +1,36 @@
 <header class="container flex items-center justify-between mx-auto py-3 px-5 border-b border-gray-100">
     <div id="header-left" class="flex items-center">
-        <x-application-logo />
+        <x-application-mark />
         <div class="top-menu ml-10">
-            <ul class="flex space-x-4">
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-yellow-900 text-sm text-yellow-500"
-                        href="http://127.0.0.1:8000">
-                        Home
-                    </a>
-                </li>
+            <div class="flex space-x-4">
+                <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                    {{ __('Home') }}
+                </x-nav-link>
 
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-yellow-500 text-sm text-gray-500"
-                        href="http://127.0.0.1:8000/blog">
-                        Blog
-                    </a>
-                </li>
+                <x-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                    {{ __('Blog') }}
+                </x-nav-link>
 
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-yellow-500 text-sm text-gray-500"
-                        href="http://127.0.0.1:8000/blog">
-                        About Us
-                    </a>
-                </li>
+                {{--<x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
+                    {{ __('About Us') }}
+                </x-nav-link>
 
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-yellow-500 text-sm text-gray-500"
-                        href="http://127.0.0.1:8000/blog">
-                        Contact Us
-                    </a>
-                </li>
+                <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                    {{ __('Contact us') }}
+                </x-nav-link>
+                <x-nav-link href="{{ route('terms') }}" :active="request()->routeIs('terms')">
+                    {{ __('Terms') }}
+                </x-nav-link>
+                --}}
 
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-yellow-500 text-sm text-gray-500"
-                        href="http://127.0.0.1:8000/blog">
-                        Terms
-                    </a>
-                </li>
-
-            </ul>
+            </div>
         </div>
     </div>
     <div id="header-right" class="flex items-center md:space-x-6">
-        @guest
-        @include('layouts.partials.header-right-guest')
-        @endguest
-
         @auth
         @include('layouts.partials.header-right-auth')
+        @else
+        @include('layouts.partials.header-right-guest')
         @endauth
 
 
