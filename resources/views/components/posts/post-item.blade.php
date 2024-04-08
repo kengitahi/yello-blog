@@ -1,12 +1,12 @@
 @props(['post'])
 <article class="[&:not(:last-child)]:border-b border-gray-100 pb-10">
     <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
-        <div class="article-thumbnail col-span-4 flex items-center">
+        <div class="article-thumbnail md:col-span-4 col-span-12 flex items-center">
             <a href="">
                 <img class="mw-100 mx-auto rounded-xl" src="{{$post->image}}" alt="{{$post->title}}">
             </a>
         </div>
-        <div class="col-span-8">
+        <div class="col-span-12 md:col-span-8">
             <div class="article-meta flex py-1 text-sm items-center">
                 <img src="{{Auth::user()->profile_photo_url}}" class="w-7 h-7 rounded-full mr-3" src=""
                     alt="{{$post->author->name}}">

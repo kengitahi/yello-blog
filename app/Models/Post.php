@@ -38,7 +38,7 @@ class Post extends Model
 
     public function getReadingTime()
     {
-        //Humans read about 250 words preminute
+        //Humans read about 250 words per minute
         $avgWordsPerMinute = 250;
         //Get number of words in article body and divide by the average number of words read per minute. Round up the result
         $readingTime = round(str_word_count($this->body) / $avgWordsPerMinute);
